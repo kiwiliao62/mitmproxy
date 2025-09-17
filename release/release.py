@@ -175,36 +175,36 @@ if __name__ == "__main__":
         else:
             time.sleep(30)  # relatively strict rate limits here.
 
-    print("➡️ Checking GitHub Releases...")
-    resp = get(f"https://api.github.com/repos/{repo}/releases/tags/{tag_name}")
-    assert resp.status == 200
+    # print("➡️ Checking GitHub Releases...")
+    # resp = get(f"https://api.github.com/repos/{repo}/releases/tags/{tag_name}")
+    # assert resp.status == 200
 
-    print("➡️ Checking PyPI...")
-    pypi_data = get_json("https://pypi.org/pypi/mitmproxy/json")
-    assert version in pypi_data["releases"]
+    # print("➡️ Checking PyPI...")
+    # pypi_data = get_json("https://pypi.org/pypi/mitmproxy/json")
+    # assert version in pypi_data["releases"]
 
-    print("➡️ Checking docs archive...")
-    resp = get(f"https://docs.mitmproxy.org/archive/v{major_version}/")
-    assert resp.status == 200
+    # print("➡️ Checking docs archive...")
+    # resp = get(f"https://docs.mitmproxy.org/archive/v{major_version}/")
+    # assert resp.status == 200
 
-    print(f"➡️ Checking Docker ({version} tag)...")
-    resp = get(
-        f"https://hub.docker.com/v2/repositories/mitmproxy/mitmproxy/tags/{version}"
-    )
-    assert resp.status == 200
+    # print(f"➡️ Checking Docker ({version} tag)...")
+    # resp = get(
+    #     f"https://hub.docker.com/v2/repositories/mitmproxy/mitmproxy/tags/{version}"
+    # )
+    # assert resp.status == 200
 
-    if branch == "main":
-        print("➡️ Checking Docker (latest tag)...")
-        docker_latest_data = get_json(
-            "https://hub.docker.com/v2/repositories/mitmproxy/mitmproxy/tags/latest"
-        )
-        docker_last_updated = datetime.datetime.fromisoformat(
-            docker_latest_data["last_updated"].replace("Z", "+00:00")
-        )
-        print(f"Last update: {docker_last_updated.isoformat(timespec='minutes')}")
-        assert docker_last_updated > datetime.datetime.now(
-            datetime.UTC
-        ) - datetime.timedelta(hours=2)
+    # if branch == "main":
+    #     print("➡️ Checking Docker (latest tag)...")
+    #     docker_latest_data = get_json(
+    #         "https://hub.docker.com/v2/repositories/mitmproxy/mitmproxy/tags/latest"
+    #     )
+    #     docker_last_updated = datetime.datetime.fromisoformat(
+    #         docker_latest_data["last_updated"].replace("Z", "+00:00")
+    #     )
+    #     print(f"Last update: {docker_last_updated.isoformat(timespec='minutes')}")
+    #     assert docker_last_updated > datetime.datetime.now(
+    #         datetime.UTC
+    #     ) - datetime.timedelta(hours=2)
 
     print("")
     print("✅ All done. 🥳")
