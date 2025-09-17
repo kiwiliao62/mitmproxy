@@ -7,10 +7,6 @@
 
 ## Unreleased: mitmproxy next
 
-
-## 17 September 2025: mitmproxy 12.1.2
-
-
 ## 24 August 2025: mitmproxy 12.1.2
 
 - Docker images are now build with Debian Trixie.
@@ -1465,7 +1461,7 @@ Mitmproxy has a completely new proxy core, fixing many longstanding issues:
   decoding.
 * Server facing SSL cipher suite specification (thanks to Jim Shaver).
 * Official support for transparent proxying on FreeBSD - thanks to Mike C
-  (http://github.com/mike-pt).
+  (https://github.com/mike-pt).
 * Many other small bugfixes and improvemenets throughout the project.
 
 ## 29 Dec 2014: mitmproxy 0.11.2
@@ -1559,7 +1555,7 @@ Mitmproxy has a completely new proxy core, fixing many longstanding issues:
 * Add a WSGI container that lets you host in-proxy web applications.
 * Full transparent proxy support for Linux and OSX.
 * Introduce netlib, a common codebase for mitmproxy and pathod
-  (http://github.com/cortesi/netlib).
+  (https://github.com/cortesi/netlib).
 * Full support for SNI.
 * Color palettes for mitmproxy, tailored for light and dark terminal
   backgrounds.
