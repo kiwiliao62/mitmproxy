@@ -13,9 +13,9 @@ jobs:
   autofix:
     runs-on: ubuntu-latest
     steps:
-      - uses: mhils/workflows/checkout@16608e9df5912db0e3ad86a9b90e25e933f2496b
-      - uses: mhils/workflows/setup-uv@16608e9df5912db0e3ad86a9b90e25e933f2496b
-      - uses: mhils/workflows/uv-sync@16608e9df5912db0e3ad86a9b90e25e933f2496b
+      - uses: mhils/workflows/checkout@af886cbabab992a8e7db75c6af3516af2b1f5a1c
+      - uses: mhils/workflows/setup-uv@af886cbabab992a8e7db75c6af3516af2b1f5a1c
+      - uses: mhils/workflows/uv-sync@af886cbabab992a8e7db75c6af3516af2b1f5a1c
 
       - run: ruff check --fix-only .
       - run: ruff format .
@@ -24,7 +24,7 @@ jobs:
 
       - run: web/gen/all
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .github/node-version.txt
       - run: npm ci
